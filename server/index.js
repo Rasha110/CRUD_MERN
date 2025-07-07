@@ -1,5 +1,5 @@
 const express=require("express")
-const mongoose=require("mongoose")
+
 const cors=require("cors")
 const UserModel=require("./models/Users")
 
@@ -8,8 +8,14 @@ const app=express()
 app.use(cors())
 app.use(express.json());//this is for whenever we pass data from frontend
 //  to backend it will force data in json format
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://127.0.0.1:27017/crud")
+// Use the URL from the .env file
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("MongoDB connection error:", err));
+
 
 app.get("/",(req,res)=>{
     UserModel.find({}).then(users=>res.json(users)).catch(err=>res.json(err));
