@@ -31,8 +31,10 @@ function UpdateUser() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center min-vh-100 bg-secondary"style={{ minHeight: '100vh' }}>
-      <div className="w-50 bg-white text-dark rounded shadow p-4">
+<div className="d-flex justify-content-center align-items-center bg-secondary py-5" style={{ minHeight: '100vh' }}>
+<div className="bg-white text-dark rounded shadow p-4" style={{ width: "400px", minHeight: "auto" }}>
+
+
         <h2 className="text-center mb-4">Update User</h2>
         <form onSubmit={Update}>
           <div className="mb-3">
